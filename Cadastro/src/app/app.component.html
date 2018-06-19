@@ -1,0 +1,177 @@
+<div class="area-cartao">
+  <div class="cartao">
+    <div class="linha1">
+      <span class="titulo">{{tituloCartao}}</span>
+    </div>
+
+    <div class="linha2">
+      <img src="assets/img/cartao.png" style="width: 65px;" />
+    </div>
+
+    <div class="linha3">
+      <div class="numero">{{numeroCartao}}</div>
+    </div>
+
+    <div class="linha4">
+      <span style="margin: 10px 15px; color:gold; text-transform: uppercase;">{{nome}}</span>
+      <span style="margin: 10px 45px; color:white;">{{duracao}}</span>
+    </div>
+  </div>
+  <div class="area-dados">
+    <ul>
+      <li>
+        <b>Nome:</b> {{nome}}</li>
+      <li>
+        <b>Preço</b> {{preco}}</li>
+      <li>
+        <b>Descrição:</b> {{descricao}}</li>
+      <li>
+        <b>Código:</b> {{codigo}}</li>
+      <li>
+        <b>Num. Cartão:</b> {{numeroCartao}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="area-form">
+  <div id="menu">
+    <button type="button" (click)="mudaPagina('cadastro')">Novo Cadastro</button>
+    <button type="button" (click)="mudaPagina('listar')">Listar Produtos</button>
+    <button type="button" (click)="mudaPagina('editar')" disabled>Editar</button>
+  </div>
+
+  <div id="cadastro" *ngIf="pagina == 'cadastro'">
+    <form #cartaoForm="ngForm">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              <h3>Cadastro de Produtos</h3>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nome:</td>
+            <td>
+              <input type="text" required [(ngModel)]="nome" name="nome">
+            </td>
+          </tr>
+          <tr>
+            <td>Preço do Produto:</td>
+            <td>
+              <input type="text" required [(ngModel)]="preco" name="preco" />
+              <input type="button" name="bt" (click)="geraValidade()" value="..." />
+            </td>
+          </tr>
+          <tr>
+            <td>Descrição:</td>
+            <td>
+              <input type="text" required [(ngModel)]="descricao" name="descricao">
+            </td>
+          </tr>
+          <tr>
+            <td>Código:</td>
+            <td>
+              <input type="text" required [(ngModel)]="codigo" name="codigo">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <br/>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="right">
+              <button type="button" (click)="preparaObj()">Cadastrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <div id="listar" *ngIf="pagina == 'listar'">
+    <table>
+      <tr>
+        <td colspan="2">
+          <b>Produtos cadastrados:</b>
+        </td>
+      </tr>
+      <tr *ngFor="let produto of dados; let i = index;">
+        <td>{{produto.nome}} - {{produto.preco}}</td>
+        <td>
+          <img src="assets/img/edit.png" style="height: 18px;" (click)="edita(i)" />
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="editar" *ngIf="pagina == 'editar'">
+    <form #cartaoForm="ngForm">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              <h3>EDIÇÃO</h3>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nome:</td>
+            <td>
+              <input type="text" required [(ngModel)]="nome" name="nome">
+            </td>
+          </tr>
+          <tr>
+            <td>Preco do produto:</td>
+            <td>
+              <input type="text" required [(ngModel)]="preco" name="preco" />
+              <input type="button" name="bt" (click)="geraValidade()" value="..." />
+            </td>
+          </tr>
+          <tr>
+            <td>Descrição:</td>
+            <td>
+              <input type="text" required [(ngModel)]="descricao" name="descricao">
+            </td>
+          </tr>
+          <tr>
+            <td>Código:</td>
+            <td>
+              <input type="text" required [(ngModel)]="codigo" name="codigo">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <br/>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="right">
+              <button type="button" (click)="salvaEdicao()">Salvar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div id="home" *ngIf="pagina == 'home'">home</div>
+
+  <div id="info">
+      <table>
+      <tr>
+        <td colspan="2">
+          <b>Produtos cadastrados:</b>
+        </td>
+      </tr>
+      <tr *ngFor="let produto of dados; let i = index;">
+        <td>{{produto.nome}} - {{produto.preco}}</td>
+        <td>
+          <img src="assets/img/trash.png" (click)="remove(i)" />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

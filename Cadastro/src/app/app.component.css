@@ -1,0 +1,81 @@
+.cartao {
+    width: 420px;
+    height: 260px;
+    border-radius: 15px;
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); 
+    margin: 0 auto;
+}
+
+.linha1 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.linha2 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.linha3 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.linha4 {
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 10px;
+}
+
+.titulo {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0 0 3px;
+}
+
+.numero {
+    color: silver;
+    font-size: 1.5em;
+    margin: 10px auto;
+}
+
+.area-cartao {
+    background: #e3e3e3;
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+
+.area-form {
+    margin-top: 25px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 25% auto 25% ;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+#cadastro {
+    background: #c9e6ff;
+}
+
+#menu {
+    display: grid;
+}
+
+table {
+    margin: 0 auto;
+}
+
+.area-dados {
+    background: white;
+    border: solid 0.5px grey;
+}

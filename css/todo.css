@@ -1,0 +1,12 @@
+    .done-true {
+        text-decoration: line-through;
+        color: grey;
+      }
+
+      .par{
+          color: green;
+      }
+      .inpar {
+          color: blue;  
+      }
+  
